@@ -1,0 +1,200 @@
+/* Filename: style.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* MODERN VIBRANT PALETTE */
+    --brand-dark: #0f172a;           /* Deep Navy (Text) */
+    --brand-primary: #0066ff;        /* Vibrant Blue (Brand) */
+    --brand-primary-dark: #0052cc;   /* Darker Blue */
+    --brand-action: #4f46e5;         /* Indigo (Primary Actions) */
+    --brand-action-light: #6366f1;   /* Light Indigo */
+    --brand-accent: #06b6d4;         /* Cyan Accent */
+    --brand-success: #10b981;        /* Emerald Green */
+    --brand-warning: #f59e0b;        /* Amber */
+    --brand-surface: #f8fafc;        /* Soft Gray Background */
+    --brand-surface-alt: #f1f5f9;    /* Alternate Surface */
+    --brand-glass: rgba(255, 255, 255, 0.85); /* Enhanced Glass */
+    --brand-glass-dark: rgba(15, 23, 42, 0.1); /* Dark Glass Overlay */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #0066ff 0%, #4f46e5 50%, #6366f1 100%);
+    --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --gradient-surface: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(180deg, #ffffff 0%, var(--brand-surface) 100%);
+    background-attachment: fixed;
+    color: var(--brand-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced Tap Effect with Ripple */
+.tap-effect { 
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+.tap-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+.tap-effect:active { 
+    transform: scale(0.96);
+}
+.tap-effect:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Enhanced Hover Effects */
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 102, 255, 0.15);
+}
+
+.hover-glow {
+    transition: all 0.3s ease;
+}
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+}
+
+/* Glassmorphism Panel (Enhanced) */
+.glass-panel {
+    background: var(--brand-glass);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+/* Smooth Scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Enhanced Input Fields */
+.input-field {
+    background-color: white;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-field:hover {
+    border-color: var(--brand-action-light);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.05);
+}
+.input-field:focus {
+    border-color: var(--brand-action);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+/* Button Animations */
+.btn-gradient {
+    background: var(--gradient-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+.btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+.btn-gradient:hover::before {
+    left: 100%;
+}
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth Fade In */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* Stagger Animation Delays */
+[style*="animation-delay"] {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* Card Hover Effect */
+.card-interactive {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+.card-interactive:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-action-light);
+    box-shadow: 0 12px 40px rgba(79, 70, 229, 0.12);
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}

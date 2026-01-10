@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixora | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            dark: '#0f172a', 
+                            primary: '#0066ff', 
+                            'primary-dark': '#0052cc',
+                            action: '#4f46e5',
+                            'action-light': '#6366f1',
+                            accent: '#06b6d4',
+                            success: '#10b981',
+                            warning: '#f59e0b',
+                            surface: '#f8fafc',
+                            'surface-alt': '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-surface pb-28">
+
+    <header class="px-6 pt-12 pb-8 bg-brand-surface relative z-10">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-md border border-gray-100 hover:border-brand-action-light transition-all hover-lift tap-effect">
+                <i class="fa-solid fa-location-dot text-brand-action"></i>
+                <span class="text-brand-dark font-bold text-sm">San Francisco, CA</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Alex&background=0f172a&color=fff" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+        </div>
+
+        <h1 class="text-4xl font-extrabold text-brand-dark mb-8 leading-tight">Find your <br><span class="text-brand-action">expert</span> today.</h1>
+
+        <div class="relative tap-effect">
+            <i class="fa-solid fa-search absolute left-5 top-5 text-gray-400"></i>
+            <input type="text" id="serviceSearch" placeholder="Search 'AC Repair'..." 
+                class="input-field w-full rounded-[20px] py-4 pl-12 pr-16 text-brand-dark font-semibold shadow-sm"
+                onkeypress="handleSearch(event)">
+            <div class="absolute right-3 top-3 bg-gradient-to-br from-brand-dark to-brand-primary text-white p-2 rounded-xl tap-effect hover-lift shadow-md">
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6">
+        <div class="flex justify-between items-end mb-6">
+            <h2 class="text-xl font-bold text-brand-dark">Categories (R-3.1)</h2>
+            <a href="booking.html" class="text-brand-action text-sm font-bold hover:underline">See All</a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <a href="booking.html" class="card-interactive bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect fade-in-up" style="animation-delay: 0.1s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-50 to-indigo-50 text-brand-action rounded-2xl flex items-center justify-center text-2xl shadow-sm transition-transform hover:scale-110 hover:rotate-6">
+                    <i class="fa-solid fa-snowflake"></i>
+                </div>
+                <span class="font-bold text-brand-dark">AC Repair</span>
+            </a>
+
+            <a href="booking.html" class="card-interactive bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect fade-in-up" style="animation-delay: 0.2s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-50 to-emerald-50 text-brand-success rounded-2xl flex items-center justify-center text-2xl shadow-sm transition-transform hover:scale-110 hover:rotate-6">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <span class="font-bold text-brand-dark">Cleaning</span>
+            </a>
+
+            <a href="booking.html" class="card-interactive bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect fade-in-up" style="animation-delay: 0.3s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-50 to-pink-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl shadow-sm transition-transform hover:scale-110 hover:rotate-6">
+                    <i class="fa-solid fa-paint-roller"></i>
+                </div>
+                <span class="font-bold text-brand-dark">Painting</span>
+            </a>
+
+            <a href="booking.html" class="card-interactive bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect fade-in-up" style="animation-delay: 0.4s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-amber-50 to-yellow-50 text-brand-warning rounded-2xl flex items-center justify-center text-2xl shadow-sm transition-transform hover:scale-110 hover:rotate-6">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="font-bold text-brand-dark">Electrical</span>
+            </a>
+        </div>
+    </main>
+
+    <div class="fixed bottom-6 left-6 right-6 glass-panel rounded-[24px] p-4 shadow-xl shadow-brand-dark/10 flex justify-around items-center z-50">
+        <a href="home.html" class="text-brand-action flex flex-col items-center gap-1 tap-effect hover:scale-110 transition-transform relative">
+            <div class="absolute -top-1 -right-1 w-2 h-2 bg-brand-action rounded-full"></div>
+            <i class="fa-solid fa-house text-xl"></i>
+            <span class="text-xs font-bold mt-1">Home</span>
+        </a>
+        <a href="booking_history.html" class="text-gray-400 hover:text-brand-action transition-all flex flex-col items-center gap-1 tap-effect hover:scale-110">
+            <i class="fa-solid fa-calendar-check text-xl"></i>
+            <span class="text-xs font-bold mt-1">Bookings</span>
+        </a>
+        <a href="tracking.html" class="text-gray-400 hover:text-brand-action transition-all flex flex-col items-center gap-1 tap-effect hover:scale-110">
+            <i class="fa-solid fa-map-location-dot text-xl"></i>
+            <span class="text-xs font-bold mt-1">Track</span>
+        </a>
+        <a href="chat.html" class="text-gray-400 hover:text-brand-action transition-all flex flex-col items-center gap-1 tap-effect hover:scale-110 relative">
+            <i class="fa-solid fa-message text-xl"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center text-[10px] text-white font-bold">3</span>
+            <span class="text-xs font-bold mt-1">Chat</span>
+        </a>
+    </div>
+
+    <script>
+        // Service Search Functionality (R-3.1)
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                const searchTerm = document.getElementById('serviceSearch').value.trim();
+                if (searchTerm) {
+                    // In real app, this would query database for matching services
+                    console.log('Searching for:', searchTerm);
+                    // Navigate to booking page with search results
+                    window.location.href = `booking.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        }
+
+        // Real-time search suggestions (R-3.1)
+        document.getElementById('serviceSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.trim();
+            if (searchTerm.length > 2) {
+                // In real app, this would fetch suggestions from backend
+                console.log('Fetching suggestions for:', searchTerm);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixora | Tracking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            dark: '#0f172a', 
+                            primary: '#0066ff', 
+                            'primary-dark': '#0052cc',
+                            action: '#4f46e5',
+                            'action-light': '#6366f1',
+                            accent: '#06b6d4',
+                            success: '#10b981',
+                            warning: '#f59e0b',
+                            surface: '#f8fafc',
+                            'surface-alt': '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-screen overflow-hidden relative bg-brand-surface">
+
+    <div class="absolute top-6 left-4 right-4 z-20 flex gap-2">
+        <a href="home.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl text-brand-dark tap-effect hover-lift hover:bg-brand-surface">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <button onclick="openFilterModal()" class="flex-1 bg-white rounded-full px-4 flex items-center justify-center gap-2 shadow-xl tap-effect hover-lift text-brand-dark font-bold text-sm">
+            <i class="fa-solid fa-filter text-brand-action"></i>
+            <span>Filters (R-10.2)</span>
+        </button>
+    </div>
+
+    <div class="absolute inset-0 z-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Mapbox_iOS_SDK_gl.png')] bg-cover bg-center grayscale opacity-60">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+            <div class="w-24 h-24 bg-gradient-to-br from-brand-action/30 to-brand-accent/30 rounded-full animate-ping absolute"></div>
+            <div class="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-action rounded-full border-4 border-white shadow-2xl flex items-center justify-center text-white z-10 relative pulse-glow">
+                <i class="fa-solid fa-user-gear text-2xl"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-6 left-4 right-4 glass-panel p-6 rounded-[32px] shadow-2xl z-30">
+        
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Arriving In</p>
+                <h2 class="text-4xl font-extrabold text-brand-dark">12 <span class="text-lg text-gray-500">mins</span></h2>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="window.location.href='tel:+1234567890'" class="w-14 h-14 rounded-full bg-gradient-to-br from-green-50 to-emerald-50 text-brand-success flex items-center justify-center tap-effect hover-lift shadow-md hover:shadow-lg transition-all hover:scale-110"><i class="fa-solid fa-phone text-xl"></i></button>
+                <button onclick="window.location.href='chat.html'" class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 text-brand-action flex items-center justify-center tap-effect hover-lift shadow-md hover:shadow-lg transition-all hover:scale-110"><i class="fa-solid fa-comment-dots text-xl"></i></button>
+            </div>
+        </div>
+
+        <div class="space-y-6 relative pl-4 border-l-2 border-gray-200 ml-2">
+            <div class="relative">
+                <div class="absolute -left-[21px] bg-green-500 w-4 h-4 rounded-full border-2 border-white"></div>
+                <h4 class="font-bold text-sm text-brand-dark">Order Confirmed</h4>
+                <p class="text-xs text-gray-500">10:45 AM</p>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-[23px] bg-gradient-to-br from-brand-action to-brand-primary w-5 h-5 rounded-full border-4 border-white shadow-lg pulse-glow"></div>
+                <h4 class="font-bold text-sm bg-gradient-to-r from-brand-action to-brand-primary bg-clip-text text-transparent">On the way</h4>
+                <p class="text-xs text-gray-500">Mike is driving...</p>
+            </div>
+        </div>
+
+        <button onclick="window.location.href='checkout.html'" class="w-full mt-8 bg-gradient-to-r from-brand-dark via-brand-primary to-brand-action text-white py-4 rounded-[20px] font-bold shadow-xl shadow-brand-action/30 tap-effect hover-lift transition-all relative overflow-hidden">
+            <span class="relative z-10">Complete Payment</span>
+        </button>
+
+    </div>
+
+    <!-- Location Filter Modal (R-10.2) -->
+    <div id="filterModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-[32px] p-6 max-w-md w-full shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-brand-dark">Filter Workers (R-10.2)</h3>
+                <button onclick="closeFilterModal()" class="text-gray-400 hover:text-brand-dark tap-effect">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-3">Filter by Location</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl tap-effect cursor-pointer hover:bg-gray-100">
+                            <input type="radio" name="locationFilter" value="nearby" class="w-5 h-5 text-brand-action" checked>
+                            <div class="flex-1">
+                                <p class="font-bold text-brand-dark">Nearby (R-10.2)</p>
+                                <p class="text-xs text-gray-500">Within 5 km radius</p>
+                            </div>
+                            <i class="fa-solid fa-location-dot text-brand-action"></i>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl tap-effect cursor-pointer hover:bg-gray-100">
+                            <input type="radio" name="locationFilter" value="available" class="w-5 h-5 text-brand-action">
+                            <div class="flex-1">
+                                <p class="font-bold text-brand-dark">Available Now</p>
+                                <p class="text-xs text-gray-500">Currently available workers</p>
+                            </div>
+                            <i class="fa-solid fa-check-circle text-brand-success"></i>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl tap-effect cursor-pointer hover:bg-gray-100">
+                            <input type="radio" name="locationFilter" value="rating" class="w-5 h-5 text-brand-action">
+                            <div class="flex-1">
+                                <p class="font-bold text-brand-dark">Highest Rated</p>
+                                <p class="text-xs text-gray-500">4.5+ star rating</p>
+                            </div>
+                            <i class="fa-solid fa-star text-amber-400"></i>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Maximum Distance</label>
+                    <input type="range" min="1" max="20" value="5" class="w-full" id="distanceRange">
+                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>1 km</span>
+                        <span id="distanceValue" class="font-bold text-brand-action">5 km</span>
+                        <span>20 km</span>
+                    </div>
+                </div>
+
+                <button onclick="applyFilters()" class="w-full bg-gradient-to-r from-brand-action to-brand-primary text-white py-3 rounded-xl font-bold tap-effect hover-lift shadow-md">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Location Tracking (R-10.1, R-10.2)
+        function openFilterModal() {
+            document.getElementById('filterModal').classList.remove('hidden');
+            document.getElementById('filterModal').classList.add('flex');
+        }
+
+        function closeFilterModal() {
+            document.getElementById('filterModal').classList.add('hidden');
+            document.getElementById('filterModal').classList.remove('flex');
+        }
+
+        // Distance slider
+        document.getElementById('distanceRange').addEventListener('input', function(e) {
+            document.getElementById('distanceValue').textContent = e.target.value + ' km';
+        });
+
+        // Apply filters (R-10.2)
+        function applyFilters() {
+            const locationFilter = document.querySelector('input[name="locationFilter"]:checked').value;
+            const maxDistance = document.getElementById('distanceRange').value;
+            
+            // In real app, this would filter workers based on GPS location and criteria
+            alert(`Filtering workers:\n- Type: ${locationFilter}\n- Max Distance: ${maxDistance} km\n\nAssigning nearest worker in your locality...`);
+            
+            // Simulate assigning nearest worker (R-10.2)
+            console.log('Filter Applied:', {
+                locationFilter: locationFilter,
+                maxDistance: maxDistance + ' km',
+                action: 'Assigning nearest worker based on GPS location'
+            });
+            
+            closeFilterModal();
+        }
+
+        // Simulate real-time location tracking (R-10.1)
+        function updateWorkerLocation() {
+            // In real app, this would use WebSocket or polling to get worker's GPS coordinates
+            console.log('Tracking worker location via GPS...');
+        }
+
+        // Initialize location tracking
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                console.log('User Location:', {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                });
+                // In real app, send this to backend to find nearby workers
+            });
+        }
+
+        // Update location periodically (R-10.1)
+        setInterval(updateWorkerLocation, 5000);
+    </script>
+</body>
+</html>

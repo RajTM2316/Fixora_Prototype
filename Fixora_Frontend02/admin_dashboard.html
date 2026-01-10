@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixora | Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            dark: '#0f172a', 
+                            primary: '#0066ff', 
+                            'primary-dark': '#0052cc',
+                            action: '#4f46e5',
+                            'action-light': '#6366f1',
+                            accent: '#06b6d4',
+                            success: '#10b981',
+                            warning: '#f59e0b',
+                            surface: '#f8fafc',
+                            'surface-alt': '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-surface min-h-screen pb-20">
+    <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-20">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center tap-effect hover-lift">
+                <i class="fa-solid fa-arrow-left text-brand-dark"></i>
+            </a>
+            <h1 class="font-bold bg-gradient-to-r from-brand-primary to-brand-action bg-clip-text text-transparent text-xl">Fixora Admin</h1>
+        </div>
+        <img src="https://ui-avatars.com/api/?name=Admin&background=0066ff&color=fff" class="w-10 h-10 rounded-full shadow-md">
+    </header>
+
+    <main class="p-6 space-y-6">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-brand-primary card-interactive">
+                <p class="text-gray-500 text-xs uppercase font-bold tracking-wider">Categories</p>
+                <p class="text-2xl font-extrabold text-brand-primary">12</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-purple-500 card-interactive">
+                <p class="text-gray-500 text-xs uppercase font-bold tracking-wider">Total Bookings</p>
+                <p class="text-2xl font-extrabold text-purple-600">248</p>
+            </div>
+        </div>
+
+        <!-- Category Management Section -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold text-brand-dark">Service Categories (R-2)</h2>
+                <button onclick="openAddCategoryModal()" class="bg-gradient-to-r from-brand-action to-brand-primary text-white px-4 py-2 rounded-xl font-bold tap-effect hover-lift shadow-md text-sm">
+                    <i class="fa-solid fa-plus mr-1"></i> Add Category
+                </button>
+            </div>
+
+            <div id="categoriesList" class="space-y-3">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 card-interactive">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-50 to-indigo-50 text-brand-action rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-dark">AC Repair</h3>
+                            <p class="text-xs text-gray-500">Active • 45 providers</p>
+                        </div>
+                    </div>
+                    <button onclick="editCategory('ac-repair')" class="text-brand-action tap-effect hover:scale-110">
+                        <i class="fa-solid fa-edit"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 card-interactive">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-50 to-emerald-50 text-brand-success rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-broom"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-dark">Cleaning</h3>
+                            <p class="text-xs text-gray-500">Active • 32 providers</p>
+                        </div>
+                    </div>
+                    <button onclick="editCategory('cleaning')" class="text-brand-action tap-effect hover:scale-110">
+                        <i class="fa-solid fa-edit"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 card-interactive">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-50 to-pink-50 text-purple-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-paint-roller"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-dark">Painting</h3>
+                            <p class="text-xs text-gray-500">Active • 28 providers</p>
+                        </div>
+                    </div>
+                    <button onclick="editCategory('painting')" class="text-brand-action tap-effect hover:scale-110">
+                        <i class="fa-solid fa-edit"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100 card-interactive">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-50 to-yellow-50 text-brand-warning rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-brand-dark">Electrical</h3>
+                            <p class="text-xs text-gray-500">Active • 38 providers</p>
+                        </div>
+                    </div>
+                    <button onclick="editCategory('electrical')" class="text-brand-action tap-effect hover:scale-110">
+                        <i class="fa-solid fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Category Modal -->
+    <div id="categoryModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-[32px] p-6 max-w-md w-full shadow-2xl transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modalTitle" class="text-xl font-bold text-brand-dark">Add Category (R-2.1)</h3>
+                <button onclick="closeCategoryModal()" class="text-gray-400 hover:text-brand-dark tap-effect">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="categoryForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Category Name</label>
+                    <input type="text" id="categoryName" required placeholder="e.g., Plumbing" 
+                        class="w-full input-field text-brand-dark rounded-xl p-4 font-semibold">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Icon</label>
+                    <select id="categoryIcon" class="w-full input-field text-brand-dark rounded-xl p-4 font-semibold">
+                        <option value="fa-snowflake">Snowflake (AC)</option>
+                        <option value="fa-broom">Broom (Cleaning)</option>
+                        <option value="fa-paint-roller">Paint Roller</option>
+                        <option value="fa-bolt">Bolt (Electrical)</option>
+                        <option value="fa-wrench">Wrench (Plumbing)</option>
+                        <option value="fa-hammer">Hammer</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Description</label>
+                    <textarea id="categoryDescription" rows="3" placeholder="Brief description..." 
+                        class="w-full input-field text-brand-dark rounded-xl p-4 font-semibold"></textarea>
+                </div>
+
+                <div id="categoryMessage" class="hidden p-3 rounded-xl text-sm font-semibold text-center"></div>
+
+                <div class="flex gap-3">
+                    <button type="button" onclick="closeCategoryModal()" class="flex-1 bg-gray-100 text-gray-600 py-3 rounded-xl font-bold tap-effect hover-lift">
+                        Cancel
+                    </button>
+                    <button type="submit" class="flex-1 bg-gradient-to-r from-brand-action to-brand-primary text-white py-3 rounded-xl font-bold tap-effect hover-lift shadow-md">
+                        <span id="submitBtnText">Add Category</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let editingCategoryId = null;
+
+        function openAddCategoryModal() {
+            editingCategoryId = null;
+            document.getElementById('modalTitle').textContent = 'Add Category (R-2.1)';
+            document.getElementById('submitBtnText').textContent = 'Add Category';
+            document.getElementById('categoryForm').reset();
+            document.getElementById('categoryMessage').classList.add('hidden');
+            document.getElementById('categoryModal').classList.remove('hidden');
+            document.getElementById('categoryModal').classList.add('flex');
+        }
+
+        function editCategory(categoryId) {
+            editingCategoryId = categoryId;
+            document.getElementById('modalTitle').textContent = 'Update Category (R-2.2)';
+            document.getElementById('submitBtnText').textContent = 'Update Category';
+            
+            // Pre-fill form (in real app, fetch from API)
+            const categoryName = categoryId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            document.getElementById('categoryName').value = categoryName;
+            
+            document.getElementById('categoryMessage').classList.add('hidden');
+            document.getElementById('categoryModal').classList.remove('hidden');
+            document.getElementById('categoryModal').classList.add('flex');
+        }
+
+        function closeCategoryModal() {
+            document.getElementById('categoryModal').classList.add('hidden');
+            document.getElementById('categoryModal').classList.remove('flex');
+        }
+
+        document.getElementById('categoryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const messageDiv = document.getElementById('categoryMessage');
+            
+            const action = editingCategoryId ? 'updated' : 'created';
+            messageDiv.className = 'p-3 rounded-xl text-sm font-semibold text-center bg-green-50 text-brand-success border border-green-200';
+            messageDiv.textContent = `Category ${action} successfully!`;
+            messageDiv.classList.remove('hidden');
+
+            setTimeout(() => {
+                closeCategoryModal();
+                messageDiv.classList.add('hidden');
+            }, 1500);
+        });
+
+        // Close modal on overlay click
+        document.getElementById('categoryModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCategoryModal();
+        });
+    </script>
+</body>
+</html>

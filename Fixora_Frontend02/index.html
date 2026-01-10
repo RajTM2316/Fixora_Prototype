@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixora | Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            dark: '#0f172a', 
+                            primary: '#0066ff', 
+                            'primary-dark': '#0052cc',
+                            action: '#4f46e5',
+                            'action-light': '#6366f1',
+                            accent: '#06b6d4',
+                            success: '#10b981',
+                            warning: '#f59e0b',
+                            surface: '#f8fafc',
+                            'surface-alt': '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-surface min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white w-full max-w-md rounded-[32px] shadow-2xl shadow-brand-primary/10 overflow-hidden relative tap-effect">
+        
+        <div class="h-64 bg-gradient-to-br from-brand-primary via-brand-action to-brand-accent relative p-8 flex flex-col justify-center overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-white/20 rounded-full -mr-16 -mt-16 blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-brand-accent/40 rounded-full -ml-10 -mb-10 blur-2xl"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            
+            <h1 class="text-4xl font-extrabold text-white tracking-tight relative z-10 drop-shadow-lg">Fixora.</h1>
+            <p class="text-blue-50 mt-2 relative z-10 font-medium opacity-95">Professional Home Services</p>
+        </div>
+
+        <div class="p-8 -mt-6 bg-white rounded-t-[32px] relative z-20">
+            <form id="loginForm" class="space-y-5">
+                <!-- User Type Selection -->
+                <div class="flex gap-2 mb-2">
+                    <button type="button" onclick="selectLoginType('customer')" id="customerLoginBtn" class="flex-1 py-2 rounded-xl font-bold text-sm tap-effect login-type-btn active bg-gradient-to-r from-brand-action to-brand-primary text-white shadow-md">
+                        <i class="fa-solid fa-user mr-1"></i> Customer
+                    </button>
+                    <button type="button" onclick="selectLoginType('provider')" id="providerLoginBtn" class="flex-1 py-2 rounded-xl font-bold text-sm tap-effect login-type-btn bg-gray-100 text-gray-600 hover:bg-gray-200">
+                        <i class="fa-solid fa-briefcase mr-1"></i> Provider
+                    </button>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Email</label>
+                    <input type="email" required id="loginEmail" value="user@fixora.com" 
+                        class="w-full input-field text-brand-dark rounded-xl p-4 font-semibold">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Password</label>
+                    <input type="password" required id="loginPassword" value="123456" 
+                        class="w-full input-field text-brand-dark rounded-xl p-4 font-semibold">
+                </div>
+
+                <div id="loginMessage" class="hidden p-3 rounded-xl text-sm font-semibold text-center"></div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-brand-action via-brand-action-light to-brand-primary text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-action/40 tap-effect hover-lift hover-glow mt-4 transition-all relative overflow-hidden">
+                    <span class="relative z-10">Sign In</span>
+                </button>
+            </form>
+            <p class="text-center text-gray-400 text-sm mt-8">
+                Don't have an account? 
+                <a href="register.html" class="text-brand-action font-bold hover:underline">Sign up</a>
+            </p>
+        </div>
+
+    <script>
+        let loginType = 'customer';
+
+        function selectLoginType(type) {
+            loginType = type;
+            const customerBtn = document.getElementById('customerLoginBtn');
+            const providerBtn = document.getElementById('providerLoginBtn');
+
+            if (type === 'customer') {
+                customerBtn.className = 'flex-1 py-2 rounded-xl font-bold text-sm tap-effect login-type-btn active bg-gradient-to-r from-brand-action to-brand-primary text-white shadow-md';
+                providerBtn.className = 'flex-1 py-2 rounded-xl font-bold text-sm tap-effect login-type-btn bg-gray-100 text-gray-600 hover:bg-gray-200';
+            } else {
+                providerBtn.className = 'flex-1 py-2 rounded-xl font-bold text-sm tap-effect login-type-btn active bg-gradient-to-r from-brand-action to-brand-primary text-white shadow-md';
+                customerBtn.className = 'flex-1 py-2 rounded-xl font-bold text-sm tap-effect login-type-btn bg-gray-100 text-gray-600 hover:bg-gray-200';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const messageDiv = document.getElementById('loginMessage');
+            
+            // Simulate login validation
+            messageDiv.className = 'p-3 rounded-xl text-sm font-semibold text-center bg-green-50 text-brand-success border border-green-200';
+            messageDiv.textContent = 'Login successful!';
+            messageDiv.classList.remove('hidden');
+
+            setTimeout(() => {
+                window.location.href = loginType === 'customer' ? 'home.html' : 'provider_dashboard.html';
+            }, 1000);
+        });
+    </script>
+    </div>
+</body>
+</html>

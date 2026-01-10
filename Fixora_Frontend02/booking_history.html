@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixora | Booking History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            dark: '#0f172a', 
+                            primary: '#0066ff', 
+                            'primary-dark': '#0052cc',
+                            action: '#4f46e5',
+                            'action-light': '#6366f1',
+                            accent: '#06b6d4',
+                            success: '#10b981',
+                            warning: '#f59e0b',
+                            surface: '#f8fafc',
+                            'surface-alt': '#f1f5f9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-surface min-h-screen pb-24">
+    <header class="bg-white shadow-md p-4 flex items-center gap-4 sticky top-0 z-20">
+        <a href="home.html" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center tap-effect hover-lift">
+            <i class="fa-solid fa-arrow-left text-brand-dark"></i>
+        </a>
+        <h1 class="text-xl font-bold text-brand-dark">Booking History (R-6)</h1>
+    </header>
+
+    <main class="p-6 space-y-4">
+        <!-- Filter Tabs -->
+        <div class="flex gap-2 overflow-x-auto no-scrollbar mb-4">
+            <button onclick="filterBookings('all')" class="filter-tab active px-4 py-2 rounded-full font-bold text-sm tap-effect bg-gradient-to-r from-brand-action to-brand-primary text-white shadow-md whitespace-nowrap">
+                All
+            </button>
+            <button onclick="filterBookings('completed')" class="filter-tab px-4 py-2 rounded-full font-bold text-sm tap-effect bg-white text-gray-600 border border-gray-200 hover:border-brand-action whitespace-nowrap">
+                Completed
+            </button>
+            <button onclick="filterBookings('pending')" class="filter-tab px-4 py-2 rounded-full font-bold text-sm tap-effect bg-white text-gray-600 border border-gray-200 hover:border-brand-action whitespace-nowrap">
+                Pending
+            </button>
+            <button onclick="filterBookings('cancelled')" class="filter-tab px-4 py-2 rounded-full font-bold text-sm tap-effect bg-white text-gray-600 border border-gray-200 hover:border-brand-action whitespace-nowrap">
+                Cancelled
+            </button>
+        </div>
+
+        <!-- Booking Cards -->
+        <div id="bookingsList" class="space-y-4">
+            <!-- Completed Booking -->
+            <div class="booking-card bg-white rounded-[24px] p-5 shadow-md border border-gray-100 card-interactive tap-effect" data-status="completed">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark">AC Repair & Service</h3>
+                        <p class="text-sm text-gray-500 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-user-gear text-brand-action"></i>
+                            Mike Ross
+                        </p>
+                    </div>
+                    <span class="bg-green-50 text-brand-success px-3 py-1 rounded-full text-xs font-bold">Completed</span>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                    <i class="fa-solid fa-calendar text-brand-action"></i>
+                    <span>Dec 15, 2024 • 10:00 AM</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div>
+                        <p class="text-xs text-gray-500">Total Amount</p>
+                        <p class="text-xl font-extrabold text-brand-dark">$85.00</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="viewDetails('ORD-2991')" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-bold text-sm tap-effect hover-lift">
+                            View
+                        </button>
+                        <button onclick="rateService('ORD-2991')" class="px-4 py-2 bg-gradient-to-r from-brand-action to-brand-primary text-white rounded-xl font-bold text-sm tap-effect hover-lift shadow-md">
+                            Rate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Booking -->
+            <div class="booking-card bg-white rounded-[24px] p-5 shadow-md border border-gray-100 card-interactive tap-effect" data-status="pending">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark">Kitchen Cleaning</h3>
+                        <p class="text-sm text-gray-500 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-user-gear text-brand-action"></i>
+                            Sarah J.
+                        </p>
+                    </div>
+                    <span class="bg-amber-50 text-brand-warning px-3 py-1 rounded-full text-xs font-bold">Pending</span>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                    <i class="fa-solid fa-calendar text-brand-action"></i>
+                    <span>Dec 18, 2024 • 2:00 PM</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div>
+                        <p class="text-xs text-gray-500">Estimated Cost</p>
+                        <p class="text-xl font-extrabold text-brand-dark">$45.00</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="trackBooking('ORD-2992')" class="px-4 py-2 bg-gradient-to-r from-brand-action to-brand-primary text-white rounded-xl font-bold text-sm tap-effect hover-lift shadow-md">
+                            <i class="fa-solid fa-map-location-dot mr-1"></i> Track
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Booking 2 -->
+            <div class="booking-card bg-white rounded-[24px] p-5 shadow-md border border-gray-100 card-interactive tap-effect" data-status="completed">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark">Fan Repair</h3>
+                        <p class="text-sm text-gray-500 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-user-gear text-brand-action"></i>
+                            John D.
+                        </p>
+                    </div>
+                    <span class="bg-green-50 text-brand-success px-3 py-1 rounded-full text-xs font-bold">Completed</span>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                    <i class="fa-solid fa-calendar text-brand-action"></i>
+                    <span>Dec 12, 2024 • 11:00 AM</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div>
+                        <p class="text-xs text-gray-500">Total Amount</p>
+                        <p class="text-xl font-extrabold text-brand-dark">$30.00</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="viewDetails('ORD-2990')" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-bold text-sm tap-effect hover-lift">
+                            View
+                        </button>
+                        <button onclick="rateService('ORD-2990')" class="px-4 py-2 bg-gradient-to-r from-brand-action to-brand-primary text-white rounded-xl font-bold text-sm tap-effect hover-lift shadow-md">
+                            Rate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function filterBookings(status) {
+            // Update active tab
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.className = tab.className.replace('bg-gradient-to-r from-brand-action to-brand-primary text-white shadow-md', 'bg-white text-gray-600 border border-gray-200 hover:border-brand-action');
+            });
+            event.target.className = 'filter-tab active px-4 py-2 rounded-full font-bold text-sm tap-effect bg-gradient-to-r from-brand-action to-brand-primary text-white shadow-md whitespace-nowrap';
+
+            // Filter cards
+            const cards = document.querySelectorAll('.booking-card');
+            cards.forEach(card => {
+                if (status === 'all' || card.dataset.status === status) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in-up');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function viewDetails(bookingId) {
+            alert(`Viewing details for booking: ${bookingId}`);
+            // Navigate to booking details page
+        }
+
+        function rateService(bookingId) {
+            window.location.href = `feedback.html?booking=${bookingId}`;
+        }
+
+        function trackBooking(bookingId) {
+            window.location.href = `tracking.html?booking=${bookingId}`;
+        }
+    </script>
+</body>
+</html>
