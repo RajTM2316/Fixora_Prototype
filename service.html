@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixora | Services</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* ================= PAGE HEADER ================= */
+        .page-header {
+            background: linear-gradient(135deg, #1f2225, #2b2f33);
+            color: white;
+            padding: 60px 0;
+        }
+
+        /* ================= SERVICE CARD ================= */
+        .service-card {
+            background: #2b2f33;
+            color: #eaeaea;
+            border: 1px solid #3a3f44;
+            transition: all 0.3s ease;
+        }
+
+        .service-card h5 {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #cfd2d6;
+            font-size: 0.95rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: #1f2225;
+        }
+
+        .service-card img {
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #3a3f44;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="homepage.html">Fixora</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how_it_works.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex mt-3 mt-lg-0">
+                    <input class="form-control me-2" type="search" placeholder="Search services" />
+                    <button class="btn btn-outline-success">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <section class="page-header text-center">
+        <div class="container">
+            <h1 class="fw-bold">Our Services</h1>
+            <p class="mt-2">
+                Reliable household services from verified professionals
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES GRID ================= -->
+    <div class="container my-5">
+        <div class="row g-4">
+
+            <!-- Cleaning -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Cleaning</h5>
+                        <p>Home, office & deep cleaning services</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Electricity -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/Commercial Electrical Services You Can Rely On.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Electrical</h5>
+                        <p>Wiring, fan, switch & power issues</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plumbing -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/Plumbing installation.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Plumbing</h5>
+                        <p>Leakage, fitting & pipe repair</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appliance -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/home_appliance.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Appliance Repair</h5>
+                        <p>AC, fridge, washing machine repair</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Painting -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/painter.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Painting</h5>
+                        <p>Interior & exterior painting</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pest Control -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/pest controll.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Pest Control</h5>
+                        <p>Safe & effective pest solutions</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carpenter -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/carpenter.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>Carpentry</h5>
+                        <p>Furniture repair & installation</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RO Service -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card service-card h-100">
+                    <img src="images/ro service.jpg" class="card-img-top" />
+                    <div class="card-body text-center">
+                        <h5>RO Service</h5>
+                        <p>Water purifier servicing</p>
+                        <button class="btn btn-secondary btn-sm">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-light pt-4">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h5>Fixora</h5>
+                    <p class="small">
+                        Connecting customers with trusted home service professionals.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="services.html" class="text-light text-decoration-none">Services</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p class="small">📍 India</p>
+                    <p class="small">📞 +91 XXXXX XXXXX</p>
+                    <p class="small">✉ support@fixora.com</p>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary" />
+            <div class="text-center small pb-3">
+                © 2025 Fixora. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

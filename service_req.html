@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fixora | Service Request</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+
+                        <!-- Heading -->
+                        <h4 class="text-center fw-bold mb-4">
+                            Request a Service
+                        </h4>
+
+                        <!-- Step Indicator -->
+                        <ul class="nav nav-pills justify-content-center mb-4">
+                            <li class="nav-item">
+                                <span class="nav-link active">Service Details</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link disabled">Schedule</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link disabled">Confirmation</span>
+                            </li>
+                        </ul>
+
+                        <form>
+
+                            <!-- Service Selection -->
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="service">
+                                    <option selected disabled>Select service</option>
+                                    <option>Plumbing</option>
+                                    <option>Electrical</option>
+                                    <option>Cleaning</option>
+                                    <option>Appliance Repair</option>
+                                </select>
+                                <label for="service">Service Type</label>
+                            </div>
+
+                            <!-- Problem Description -->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="problem" style="height: 100px"
+                                    placeholder="Describe problem"></textarea>
+                                <label for="problem">Problem Description</label>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="location" placeholder="Location">
+                                <label for="location">Service Location</label>
+                            </div>
+
+                            <!-- Date & Time -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6 form-floating">
+                                    <input type="date" class="form-control" id="date">
+                                    <label for="date">Preferred Date</label>
+                                </div>
+
+                                <div class="col-md-6 form-floating">
+                                    <input type="time" class="form-control" id="time">
+                                    <label for="time">Preferred Time</label>
+                                </div>
+                            </div>
+
+                            <!-- Urgency -->
+                            <div class="form-floating mb-4">
+                                <select class="form-select" id="urgency">
+                                    <option>Normal</option>
+                                    <option>Urgent</option>
+                                </select>
+                                <label for="urgency">Urgency Level</label>
+                            </div>
+
+                            <!-- Button -->
+                            <button type="submit" class="btn btn-outline-dark w-100 fw-semibold">
+                                Proceed to Confirmation →
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
