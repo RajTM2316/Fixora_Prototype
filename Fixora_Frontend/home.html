@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixora | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { dark: '#0f172a', primary: '#004e98', action: '#2563eb', surface: '#f1f5f9' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-surface pb-28">
+
+    <header class="px-6 pt-12 pb-8 bg-brand-surface relative z-10">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                <i class="fa-solid fa-location-dot text-brand-action"></i>
+                <span class="text-brand-dark font-bold text-sm">San Francisco, CA</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Alex&background=0f172a&color=fff" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+        </div>
+
+        <h1 class="text-4xl font-extrabold text-brand-dark mb-8 leading-tight">Find your <br><span class="text-brand-action">expert</span> today.</h1>
+
+        <div class="relative tap-effect">
+            <i class="fa-solid fa-search absolute left-5 top-5 text-gray-400"></i>
+            <input type="text" placeholder="Search 'AC Repair'..." 
+                class="w-full bg-white border border-gray-100 rounded-[20px] py-4 pl-12 pr-4 text-brand-dark font-semibold shadow-sm focus:ring-2 focus:ring-brand-action focus:outline-none transition-all">
+            <div class="absolute right-3 top-3 bg-brand-dark text-white p-2 rounded-xl">
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6">
+        <div class="flex justify-between items-end mb-6">
+            <h2 class="text-xl font-bold text-brand-dark">Categories</h2>
+            <a href="#" class="text-brand-action text-sm font-bold">See All</a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <a href="booking.html" class="bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect border border-transparent hover:border-brand-action transition-all shadow-sm">
+                <div class="w-16 h-16 bg-blue-50 text-brand-action rounded-2xl flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-snowflake"></i>
+                </div>
+                <span class="font-bold text-brand-dark">AC Repair</span>
+            </a>
+
+            <a href="booking.html" class="bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect border border-transparent hover:border-brand-action transition-all shadow-sm">
+                <div class="w-16 h-16 bg-blue-50 text-brand-action rounded-2xl flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-broom"></i>
+                </div>
+                <span class="font-bold text-brand-dark">Cleaning</span>
+            </a>
+
+            <a href="booking.html" class="bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect border border-transparent hover:border-brand-action transition-all shadow-sm">
+                <div class="w-16 h-16 bg-blue-50 text-brand-action rounded-2xl flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-paint-roller"></i>
+                </div>
+                <span class="font-bold text-brand-dark">Painting</span>
+            </a>
+
+            <a href="booking.html" class="bg-white p-6 rounded-[24px] flex flex-col items-center gap-4 tap-effect border border-transparent hover:border-brand-action transition-all shadow-sm">
+                <div class="w-16 h-16 bg-blue-50 text-brand-action rounded-2xl flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="font-bold text-brand-dark">Electrical</span>
+            </a>
+        </div>
+    </main>
+
+    <div class="fixed bottom-6 left-6 right-6 glass-panel rounded-[24px] p-4 shadow-xl shadow-blue-900/5 flex justify-around items-center z-50">
+        <a href="#" class="text-brand-action flex flex-col items-center gap-1">
+            <i class="fa-solid fa-house text-xl"></i>
+        </a>
+        <a href="booking.html" class="text-gray-400 hover:text-brand-dark transition flex flex-col items-center gap-1">
+            <i class="fa-solid fa-calendar-check text-xl"></i>
+        </a>
+        <a href="tracking.html" class="text-gray-400 hover:text-brand-dark transition flex flex-col items-center gap-1">
+            <i class="fa-solid fa-map-location-dot text-xl"></i>
+        </a>
+    </div>
+</body>
+</html>

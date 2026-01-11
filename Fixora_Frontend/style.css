@@ -1,0 +1,45 @@
+/* Filename: style.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* DEEP SEA PALETTE */
+    --brand-dark: #0f172a;      /* Slate 900 (Text) */
+    --brand-primary: #004e98;   /* Royal Blue (Brand) */
+    --brand-action: #2563eb;    /* Bright Blue (Buttons) */
+    --brand-surface: #f1f5f9;   /* Cool Mist (Background) */
+    --brand-glass: rgba(255, 255, 255, 0.7); /* Frosted Glass */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--brand-surface);
+    color: var(--brand-dark);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* OneUI Animations */
+.tap-effect { transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1); }
+.tap-effect:active { transform: scale(0.97); }
+
+/* Glassmorphism Panel (Crystal Clear) */
+.glass-panel {
+    background: var(--brand-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Inputs */
+.input-field {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+.input-field:focus {
+    border-color: var(--brand-action);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
